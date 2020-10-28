@@ -1,8 +1,12 @@
 import json
 import time
-from os import listdir
+from os import listdir,mkdir
 from os.path import isfile,join
 loc = "./AppData"
+try:
+    mkdir(loc)
+except OSError as error:
+    print(error)
 def read(id):
     with open(f"{loc}/{id}.note","r") as f:
         return json.loads(f.read())
